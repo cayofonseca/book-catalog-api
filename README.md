@@ -1,142 +1,182 @@
-📚 Book Catalog API
-API REST simples para cadastro, listagem, atualização e exclusão de livros.
-Feita em Node.js, Express e Prisma, usando banco de dados SQLite.
+# 📚 Book Catalog API
 
-✅ Funcionalidades
-Listar todos os livros
+API REST simples para cadastro, listagem, atualização e exclusão de livros.  
+Feita em **Node.js**, **Express** e **Prisma**, usando banco de dados SQLite.
 
-Cadastrar um novo livro
+---
 
-Atualizar um livro existente
+## ✅ Funcionalidades
 
-Deletar um livro
+-   Listar todos os livros
+-   Cadastrar um novo livro
+-   Atualizar um livro existente
+-   Deletar um livro
 
-🚀 Tecnologias usadas
-Node.js
+---
 
-Express
+## 🚀 Tecnologias usadas
 
-Prisma ORM
+-   Node.js
+-   Express
+-   Prisma ORM
+-   MySQL
+-   TypeScript
 
-SQLite (como banco local)
+---
 
-TypeScript
+## ⚙️ Como rodar o projeto
 
-⚙️ Como rodar o projeto
-Clone o repositório:
+1. **Clone o repositório:**
 
-bash
-Copiar
-Editar
+```bash
 git clone https://github.com/seu-usuario/book-catalog-api.git
 cd book-catalog-api
-Instale as dependências:
+```
 
-bash
-Copiar
-Editar
+2. **Instale as dependências:**
+
+```bash
 npm install
-Configure o Prisma:
+```
 
-bash
-Copiar
-Editar
+3. **Configure o Prisma:**
+
+```bash
 npx prisma init
-No arquivo .env que o Prisma cria, defina a variável DATABASE_URL:
+```
 
-env
-Copiar
-Editar
+No arquivo `.env` que o Prisma cria, defina a variável `DATABASE_URL`:
+
+```env
 DATABASE_URL="file:./dev.db"
-Crie o banco e gere o client do Prisma:
+```
 
-bash
-Copiar
-Editar
+4. **Crie o banco e gere o client do Prisma:**
+
+```bash
 npx prisma migrate dev --name init
-Ou se preferir só criar sem migrations:
-npx prisma db push
+```
 
-Inicie o servidor:
+> Ou se preferir só criar sem migrations:  
+> `npx prisma db push`
 
-bash
-Copiar
-Editar
+5. **Inicie o servidor:**
+
+```bash
 npm run dev
-O servidor vai rodar por padrão em http://localhost:3000.
+```
 
-📌 Estrutura de pastas
-bash
-Copiar
-Editar
+> O servidor vai rodar por padrão em `http://localhost:3000`.
+
+---
+
+## 📦 Estrutura de pastas
+
+```bash
 book-catalog-api/
 ├── node_modules/
 ├── prisma/
-│ └── schema.prisma
+│   └── schema.prisma
 ├── src/
-│ ├── routes/
-│ │ └── books.ts
-│ └── server.ts
+│   ├── routes/
+│   │   └── books.ts
+│   └── server.ts
 ├── package.json
 └── tsconfig.json
-📦 Rotas da API
-Todas as rotas começam com /books.
+```
 
-🔍 Listar todos os livros
-GET /books
+---
+
+## 📦 Rotas da API
+
+Todas as rotas começam com `/books`.
+
+### 🔍 Listar todos os livros
+
+**GET** `/books`
 
 Retorna um array de livros cadastrados.
 
-json
-Copiar
-Editar
+```json
 [
-{
-"title": "Dom Quixote",
-"author": "Miguel de Cervantes"
-},
-...
+    {
+        "title": "Dom Quixote",
+        "author": "Miguel de Cervantes"
+    }
 ]
-➕ Cadastrar um novo livro
-POST /books
+```
+
+---
+
+### ➕ Cadastrar um novo livro
+
+**POST** `/books`
 
 Body (JSON):
 
-json
-Copiar
-Editar
+```json
 {
-"title": "Novo Livro",
-"author": "Nome do Autor"
+    "title": "Novo Livro",
+    "author": "Nome do Autor"
 }
+```
+
 Resposta (201):
 
-json
-Copiar
-Editar
+```json
 {
-"id": 1,
-"title": "Novo Livro",
-"author": "Nome do Autor"
+    "id": 1,
+    "title": "Novo Livro",
+    "author": "Nome do Autor"
 }
-✏️ Atualizar um livro
-PUT /books/:id
+```
+
+---
+
+### ✏️ Atualizar um livro
+
+**PUT** `/books/:id`
 
 Body (JSON):
 
-json
-Copiar
-Editar
+```json
 {
-"title": "Título atualizado",
-"author": "Autor atualizado"
+    "title": "Título atualizado",
+    "author": "Autor atualizado"
 }
-🗑️ Deletar um livro
-DELETE /books/:id
+```
 
-📄 Exemplo de requisições
-Recomendo usar o Postman ou Insomnia para testar.
-Você também pode criar um arquivo books.http ou exportar uma collection do Postman para incluir no repositório.
+---
 
-✍️ Autor
-Cayo Fonseca
+### 🗑️ Deletar um livro
+
+**DELETE** `/books/:id`
+
+---
+
+## 📄 Exemplo de requisições
+
+Recomendo usar o [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/) para testar.  
+Você também pode criar um arquivo `books.http` ou exportar uma collection do Postman para incluir no repositório.
+
+---
+
+## 📸 Prints do Projeto
+
+### 🧪 Testando a API no Postman
+
+![Listagem dos livros](screenshots/img-3.png)
+
+### ➕ Cadastro de novo livro
+
+![Cadastro](screenshots/img-1.png)
+
+### 🗑️ Deleção de livro
+
+![Deleção](screenshots/img-2.png)
+
+---
+
+## ✍️ Autor
+
+Feito por [Cayo Fonseca](https://github.com/cayofonseca)
